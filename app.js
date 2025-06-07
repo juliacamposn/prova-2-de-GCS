@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //dados ficticios
     let livros = [
-        { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
-        { titulo: "1984", autor: "George Orwell", status: "Para Ler" }
+        { id: 1, titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
+        { id: 2, titulo: "1984", autor: "George Orwell", status: "Para Ler" }
     ];
+    let proximoId = 3;
 
     function renderizarLivros() {
         listaLivrosDiv.innerHTML = ''; 
@@ -32,12 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const titulo = event.target.titulo.value;
             const autor = event.target.autor.value;
             if (titulo && autor) {
-                livros.push({ titulo, autor, status: "Adicionado Recentemente" });
+                livros.push({ id: proximoId++, titulo, autor, status: "Adicionado Recentemente" });
                 renderizarLivros();
                 event.target.reset(); // Limpa o formulário
                 alert('Livro adicionado (simulação)!');
             }
         });
     }
+
+    function removerLivro(idLivro) {
+      console.log(livros)
+      livros = livros.filter(livro => livro.id !== idLivro);
+      renderizarLivros();
+      console.log(livros)
+    }
+
     renderizarLivros();
 });
