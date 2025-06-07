@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const listaLivrosDiv = document.getElementById('lista-livros');
 
+    //dados ficticios
     let livros = [
         { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
         { titulo: "1984", autor: "George Orwell", status: "Para Ler" }
@@ -11,7 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
         livros.forEach(livro => {
             const divLivro = document.createElement('div');
             divLivro.classList.add('livro');
-            divLivro.innerHTML = `<strong>${livro.titulo}</strong> - <span class="math-inline">\{livro\.autor\} <em\>\(</span>{livro.status})</em>`;
+            
+            divLivro.innerHTML = `
+                <span><strong>${livro.titulo}</strong> - ${livro.autor} <em>(${livro.status})</em></span>
+                <button class="botao-remover">Remover</button>
+            `;
+            
+            // Adiciona o evento de clique ao botão criado
+            divLivro.querySelector('.botao-remover').addEventListener('click', () => removerLivro(livro.id));
+            
             listaLivrosDiv.appendChild(divLivro);
         });
     }
