@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const listaLivrosDiv = document.getElementById('lista-livros');
 
-    //dados ficticios
     let livros = [
         { id: 1, titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
         { id: 2, titulo: "1984", autor: "George Orwell", status: "Para Ler" }
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="botao-remover">Remover</button>
             `;
             
-            // Adiciona o evento de clique ao botão criado
             divLivro.querySelector('.botao-remover').addEventListener('click', () => removerLivro(livro.id));
             
             listaLivrosDiv.appendChild(divLivro);
@@ -35,17 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (titulo && autor) {
                 livros.push({ id: proximoId++, titulo, autor, status: "Adicionado Recentemente" });
                 renderizarLivros();
-                event.target.reset(); // Limpa o formulário
+                event.target.reset(); 
                 alert('Livro adicionado (simulação)!');
             }
         });
     }
 
     function removerLivro(idLivro) {
-      console.log(livros)
       livros = livros.filter(livro => livro.id !== idLivro);
       renderizarLivros();
-      console.log(livros)
     }
 
     renderizarLivros();
