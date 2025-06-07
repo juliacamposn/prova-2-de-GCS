@@ -36,3 +36,22 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.livro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botao-remover {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao-remover:hover {
+    background-color: #d00000;
+}
