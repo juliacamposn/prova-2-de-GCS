@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const listaLivrosDiv = document.getElementById('lista-livros');
+    const contadorLivros = document.getElementById('contador-livros'); 
 
     let livros = [
         { id: 1, titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             listaLivrosDiv.appendChild(divLivro);
         });
+        contadorLivros.textContent = `Total de livros cadastrados: ${livros.length}`;
     }
 
     const formAdicionarLivro = document.getElementById('form-adicionar-livro');
