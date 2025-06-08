@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let livros = [
     { id: 1, titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
-    { id: 2, titulo: "1984", autor: "George Orwell", status: "Para Ler" }
+    { id: 2, titulo: "1984", autor: "George Orwell", status: "Para Ler" },
+    { id: 3, titulo: "Café com Deus Pai", autor: "Júnior Rostirola", status: "Lendo"}
   ];
-  let proximoId = 3;
+  let proximoId = 4;
 
   function renderizarLivros(livrosParaRenderizar = livros) {
     listaLivrosDiv.innerHTML = ''; 
@@ -47,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmar = confirm("Tem certeza que deseja excluir esse livro?")
     if (confirmar) {
       livros = livros.filter(livro => livro.id !== idLivro);
-      renderizarLivros();
     }
   }
 
@@ -84,6 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     else if (livroParaAlterarStatus.status === "Lido") {
       livroParaAlterarStatus.status = "Para Ler";
+    }
+    else if (livroParaAlterarStatus.status === "Para Ler") {
+      livroParaAlterarStatus.status = "Lendo"
     }
     else {
       livroParaAlterarStatus.status = "Adicionado Recentemente"
