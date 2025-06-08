@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     let proximoId = 3;
 
-    function renderizarLivros() {
+    function renderizarLivros(livrosParaRenderizar = livros) {
         listaLivrosDiv.innerHTML = ''; 
-        livros.forEach(livro => {
+        livrosParaRenderizar.forEach(livro => {
             const divLivro = document.createElement('div');
             divLivro.classList.add('livro');
             
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             listaLivrosDiv.appendChild(divLivro);
         });
-        contadorLivros.textContent = `Total de livros cadastrados: ${livros.length}`;
+        contadorLivros.textContent = `Total de livros cadastrados: ${livrosParaRenderizar.length}`;
     }
 
     const formAdicionarLivro = document.getElementById('form-adicionar-livro');
