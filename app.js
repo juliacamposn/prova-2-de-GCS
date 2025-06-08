@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmar = confirm("Tem certeza que deseja excluir esse livro?")
     if (confirmar) {
       livros = livros.filter(livro => livro.id !== idLivro);
+      renderizarLivros();
     }
   }
 
