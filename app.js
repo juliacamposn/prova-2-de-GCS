@@ -49,5 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    const formFiltroLivros = document.getElementById('form-filtro-livros');
+    if (formFiltroLivros) {
+      formFiltroLivros.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const titulo = document.getElementById('filtro-titulo').value.trim();
+        const autor = document.getElementById('filtro-autor').value.trim();
+        const status = document.getElementById('filtro-status').value;
+        filtrarLivros(titulo, autor, status);
+      });
+    }
+
+    function filtrarLivros(titulo, autor, status) {
+      let livrosFiltrados
+      if (titulo) {
+        livrosFiltrados = livros.filter(livro => livro.titulo.toLowerCase().includes(titulo.toLowerCase()));
+      }
+      if (autor) {
+        livrosFiltrados = livros.filter(livro => livro.autor.toLowerCase().includes(autor.toLowerCase()));
+      }
+      if (status)
+        livrosFiltrados = livros.filter(livro => livro.status === status);
+      renderizarLivros(livrosFiltrados);
+      }
+
     renderizarLivros();
 });
