@@ -19,10 +19,20 @@
             </section>
 
         <section id="estante">
-            <h2>Meus Livros</h2>
-            <p id="contador-livros"></p>
-            <div id="lista-livros">
-                </div>
+          <h2>Meus Livros</h2>
+          <p id="contador-livros"></p>
+          <form id="form-filtro-livros" style="margin-bottom: 20px;">
+            <input type="text" id="filtro-titulo" placeholder="Filtrar por título" />
+            <input type="text" id="filtro-autor" placeholder="Filtrar por autor" />
+            <select id="filtro-status">
+              <option value="">Todos os status</option>
+              <option value="Lido">Lido</option>
+              <option value="Para Ler">Para Ler</option>
+              <option value="Adicionado Recentemente">Adicionado Recentemente</option>
+            </select>
+            <button type="submit">Filtrar</button>
+          </form> 
+          <div id="lista-livros"></div>
         </section>
 
         <section id="adicionar-livro-secao" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 20px;">
