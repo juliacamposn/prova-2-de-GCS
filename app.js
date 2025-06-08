@@ -1,19 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     const listaLivrosDiv = document.getElementById('lista-livros');
+    const contadorLivros = document.getElementById('contador-livros'); 
 
     let livros = [
-        { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
-        { titulo: "1984", autor: "George Orwell", status: "Para Ler" }
+        { id: 1, titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", status: "Lido" },
+        { id: 2, titulo: "1984", autor: "George Orwell", status: "Para Ler" }
     ];
+    let proximoId = 3;
 
     function renderizarLivros() {
         listaLivrosDiv.innerHTML = ''; 
         livros.forEach(livro => {
             const divLivro = document.createElement('div');
             divLivro.classList.add('livro');
-            divLivro.innerHTML = `<strong>${livro.titulo}</strong> - <span class="math-inline">\{livro\.autor\} <em\>\(</span>{livro.status})</em>`;
+            
+            divLivro.innerHTML = `
+                <span><strong>${livro.titulo}</strong> - ${livro.autor} <em>(${livro.status})</em></span>
+                <button class="botao-remover">Remover</button>
+            `;
+            
+            divLivro.querySelector('.botao-remover').addEventListener('click', () => removerLivro(livro.id));
+            
             listaLivrosDiv.appendChild(divLivro);
         });
+        contadorLivros.textContent = `Total de livros cadastrados: ${livros.length}`;
     }
 
     const formAdicionarLivro = document.getElementById('form-adicionar-livro');
@@ -23,12 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const titulo = event.target.titulo.value;
             const autor = event.target.autor.value;
             if (titulo && autor) {
-                livros.push({ titulo, autor, status: "Adicionado Recentemente" });
+                livros.push({ id: proximoId++, titulo, autor, status: "Adicionado Recentemente" });
                 renderizarLivros();
-                event.target.reset(); // Limpa o formulário
+                event.target.reset(); 
                 alert('Livro adicionado (simulação)!');
             }
         });
     }
+
+    function removerLivro(idLivro) {
+      const confirmar = confirm("Tem certeza que deseja excluir esse livro?")
+      if (confirmar) {
+        livros = livros.filter(livro => livro.id !== idLivro);
+        renderizarLivros();
+      }
+    }
+
     renderizarLivros();
 });

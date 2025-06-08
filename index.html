@@ -14,23 +14,25 @@
     <main>
         <section id="homepage-content">
             <h2>Bem-vindo!</h2>
-            <p>Organize sua coleção de livros de forma fácil.</p>
+            <p>Com o MinhaEstanteVirtual, você pode catalogar suas leituras por autor e título.</p>
+            <p>Mantenha sua coleção de livros favoritos sempre organizado de forma simples e fácil em um só lugar!</p>
             </section>
 
         <section id="estante">
             <h2>Meus Livros</h2>
+            <p id="contador-livros"></p>
             <div id="lista-livros">
                 </div>
         </section>
 
-        <section id="adicionar-livro-secao">
+        <section id="adicionar-livro-secao" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 20px;">
             <h3>Adicionar Novo Livro (Simulação)</h3>
-            <form id="form-adicionar-livro">
-                <label for="titulo">Título:</label>
-                <input type="text" id="titulo" name="titulo" required><br><br>
-                <label for="autor">Autor:</label>
-                <input type="text" id="autor" name="autor" required><br><br>
-                <button type="submit">Adicionar Livro (Simulado)</button>,
+            <form id="form-adicionar-livro" style="text-align: center;">
+            <label for="titulo">Título:</label><br>
+            <input type="text" id="titulo" name="titulo" required><br><br>
+            <label for="autor">Autor:</label><br>
+            <input type="text" id="autor" name="autor" required><br><br>
+            <button id="button" type="submit">Adicionar Livro (Simulado)</button>
             </form>
         </section>
 
