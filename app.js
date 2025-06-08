@@ -17,9 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
       divLivro.innerHTML = `
         <span><strong>${livro.titulo}</strong> - ${livro.autor} <em>(${livro.status})</em></span>
         <button class="botao-remover">Remover</button>
+        <button class="botao-alterar-status">Alterar Status</button>
       `;
       
       divLivro.querySelector('.botao-remover').addEventListener('click', () => removerLivro(livro.id));
+      divLivro.querySelector('.botao-alterar-status').addEventListener('click', () => alterarStatus(livro.id));
       
       listaLivrosDiv.appendChild(divLivro);
     });
@@ -71,6 +73,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (status)
       livrosFiltrados = livros.filter(livro => livro.status === status);
     renderizarLivros(livrosFiltrados);
+  }
+
+  function alterarStatus(idLivro) {
+    const livroParaAlterarStatus = livros.find(livro => livro.id === idLivro);
+    if (!livroParaAlterarStatus) return;
+
+    if (livroParaAlterarStatus.status === "Adicionado Recentemente") {
+      livroParaAlterarStatus.status = "Lido";
+    }
+    else if (livroParaAlterarStatus.status === "Lido") {
+      livroParaAlterarStatus.status = "Para Ler";
+    }
+    else {
+      livroParaAlterarStatus.status = "Adicionado Recentemente"
+    }
+    console.log(livros)
+    renderizarLivros();
   }
 
   renderizarLivros();
