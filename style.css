@@ -267,12 +267,12 @@ button[type="submit"]:active, #button:active {
 
 /* Seção de adicionar livro */
 #adicionar-livro-secao {
-    background: linear-gradient(135deg, #f594dd, #eb59a9);
+    background: whitesmoke;
     color: white;
 }
 
 #adicionar-livro-secao h3 {
-    color: white;
+    color: #2d3748;
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -284,12 +284,11 @@ button[type="submit"]:active, #button:active {
 }
 
 #adicionar-livro-secao input {
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid #e2e8f0;
 }
 
 #adicionar-livro-secao label {
-    color: white;
+    color: #2d3748;
     font-weight: 500;
     width: 100%;
     margin-bottom: 0.5rem;
