@@ -19,10 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <span><strong>${livro.titulo}</strong> - ${livro.autor} <em>(${livro.status})</em></span>
         <button class="botao-remover">Remover</button>
         <button class="botao-alterar-status">Alterar Status</button>
+        <button class="botao-editar">Editar</button>
       `;
       
       divLivro.querySelector('.botao-remover').addEventListener('click', () => removerLivro(livro.id));
       divLivro.querySelector('.botao-alterar-status').addEventListener('click', () => alterarStatus(livro.id));
+      divLivro.querySelector('.botao-editar').addEventListener('click', () => editarLivro(livro.id));
       
       listaLivrosDiv.appendChild(divLivro);
     });
@@ -94,6 +96,19 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(livros)
     renderizarLivros();
   }
+
+    function editarLivro(idLivro) {
+        const livroParaEditar = livros.find(livro => livro.id === idLivro);
+        if (!livroParaEditar) return;
+        const novoTitulo = prompt("Digite o novo título:", livroParaEditar.titulo);
+        const novoAutor = prompt("Digite o novo autor:", livroParaEditar.autor);
+        if (novoTitulo && novoAutor) {
+            livroParaEditar.titulo = novoTitulo;
+            livroParaEditar.autor = novoAutor;
+            renderizarLivros();
+        }
+    }
+
 
   renderizarLivros();
 });
