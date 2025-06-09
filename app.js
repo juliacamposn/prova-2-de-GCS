@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (confirmar) {
       livros = livros.filter(livro => livro.id !== idLivro);
     }
+    renderizarLivros();
   }
 
   const formFiltroLivros = document.getElementById('form-filtro-livros');
