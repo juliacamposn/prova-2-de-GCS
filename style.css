@@ -277,10 +277,22 @@ button[type="submit"]:active, #button:active {
     margin-bottom: 1.5rem;
 }
 
+#adicionar-livro-secao .inputs-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+#adicionar-livro-secao .inputs-row label {
+    width: auto;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
 #adicionar-livro-secao form {
-    justify-content: center;
-    max-width: 500px;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 #adicionar-livro-secao input {
